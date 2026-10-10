@@ -16,7 +16,7 @@ export default function Enquiry() {
 
 let getallList=()=>{
     axios
-      .get("http://localhost:8020/api/website/enquiry/view")
+      .get("http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/view")
       .then((res) => {
         console.log(res.data.enquirylist);
         setEnquiryList(res.data.enquirylist);
@@ -42,7 +42,7 @@ useEffect(()=>{
 
 if(fomeData._id){
  
-axios.put(`http://localhost:8020/api/website/enquiry/update/${fomeData._id}`,
+axios.put(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/update/${fomeData._id}`,
   fomeData
 )
 .then((res) => {
@@ -61,7 +61,7 @@ axios.put(`http://localhost:8020/api/website/enquiry/update/${fomeData._id}`,
 })
 }else{
   
-axios.post(`http://localhost:8020/api/website/enquiry/insert`,
+axios.post(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/insert`,
   fomeData
 )
 .then((res) => {
@@ -98,7 +98,7 @@ axios.post(`http://localhost:8020/api/website/enquiry/insert`,
 let deleteRow = (delid) => {
   if (window.confirm("Are you sure you want to delete?")) {
     axios
-      .delete(`http://localhost:8020/api/website/enquiry/delete/${delid}`)
+      .delete(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/delete/${delid}`)
       .then((res) => {
         toast.success("Enquiry Deleted");
 
@@ -116,7 +116,7 @@ let deleteRow = (delid) => {
 
 let editRow=(editid)=>{
    axios
-      .get(`http://localhost:8020/api/website/enquiry/single/${editid}`)
+      .get(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/single/${editid}`)
        .then((res)=>{
          let data = res.data
          setFomeData(data.enquiry)
