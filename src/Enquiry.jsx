@@ -15,8 +15,7 @@ export default function Enquiry() {
    const [enquiryList, setEnquiryList] = useState([]);
 
 let getallList=()=>{
-    axios
-      .get("http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/view")
+       axios.get(`${"https://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry"}/view`)
       .then((res) => {
         console.log(res.data.enquirylist);
         setEnquiryList(res.data.enquirylist);
@@ -42,9 +41,8 @@ useEffect(()=>{
 
 if(fomeData._id){
  
-axios.put(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/update/${fomeData._id}`,
-  fomeData
-)
+axios.put(`${ "https://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry"}/update/${fomeData._id}`, fomeData)
+
 .then((res) => {
   console.log(res.data);
    toast.success('Enquiry update Successfully')
@@ -61,9 +59,8 @@ axios.put(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/up
 })
 }else{
   
-axios.post(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/insert`,
-  fomeData
-)
+axios.post(`${ "https://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry"}/insert`, fomeData)
+
 .then((res) => {
   console.log(res.data);
    toast.success('Enquiry Save Successfully')
@@ -97,8 +94,7 @@ axios.post(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/i
    
 let deleteRow = (delid) => {
   if (window.confirm("Are you sure you want to delete?")) {
-    axios
-      .delete(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/delete/${delid}`)
+       axios.delete(`${ "https://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry"}/delete/${delid}`)
       .then((res) => {
         toast.success("Enquiry Deleted");
 
@@ -115,8 +111,7 @@ let deleteRow = (delid) => {
 }
 
 let editRow=(editid)=>{
-   axios
-      .get(`http://userenquiry-backend-1-yorw.onrender.com/api/website/enquiry/single/${editid}`)
+   axios.get(`${API_URL}/single/${editid}`)
        .then((res)=>{
          let data = res.data
          setFomeData(data.enquiry)
